@@ -22,7 +22,7 @@ const Layout = (props: { children: ReactNode; largerThanSm?: true }) => {
           <Text
             weight={700}
             size="lg"
-            className={largerThanSm ? undefined : "m-0 m-auto"}
+            className={largerThanSm ? undefined : "m-auto"}
           >
             Shimabu IT University
           </Text>
