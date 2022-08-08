@@ -4,7 +4,6 @@ import {
   Text,
   Container,
   Group,
-  Button,
   ThemeIcon,
 } from "@mantine/core";
 import { IconMoon } from "@tabler/icons";
@@ -14,7 +13,6 @@ import { ReactNode } from "react";
 const Layout = (props: { children: ReactNode }) => {
   return (
     <AppShell
-      padding="md"
       header={
         <Header height={65} className="flex justify-around items-center">
           <Text weight={700} size="lg" style={{ fontFamily: "Avenir Next" }}>
@@ -63,18 +61,8 @@ const Layout = (props: { children: ReactNode }) => {
           </Group>
         </Header>
       }
-      styles={(theme) => ({
-        main: {
-          backgroundColor:
-            theme.colorScheme === "dark"
-              ? theme.colors.dark[8]
-              : theme.colors.gray[0],
-        },
-      })}
     >
-      <Container>
-        <div>hello</div>
-      </Container>
+      <Container>{props.children}</Container>
     </AppShell>
   );
 };
