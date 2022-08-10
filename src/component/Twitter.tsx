@@ -1,7 +1,6 @@
-import { NextPage } from "next";
 import ContentLayout from "src/component/ContentLayout";
 
-const Twitter: NextPage = () => {
+const Twitter = () => {
   return (
     <ContentLayout title="Twitter" buttonTitle="View on Twitter" isHalf>
       <p>Twitter</p>

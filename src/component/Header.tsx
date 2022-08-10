@@ -11,6 +11,7 @@ import { IconMenu2, IconMoon } from "@tabler/icons";
 import Link from "next/link";
 import { useState } from "react";
 import { useCallback } from "react";
+
 import { useMediaQuery } from "src/lib/mantine";
 
 const Header = () => {
