@@ -1,6 +1,4 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import { useMediaQuery, useViewportSize } from "src/lib/mantine";
 
 import { Button, Container } from "@mantine/core";
@@ -19,7 +17,7 @@ const Home: NextPage = () => {
   };
 
   return (
-    <Layout>
+    <Layout title="Home">
       <div className="w-full bg-red-400 h-60">
         <Container size="md">
           <div className="bg-pink flex justify-between items-center">

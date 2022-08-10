@@ -1,15 +1,24 @@
 import { Text, Group, ThemeIcon, ActionIcon, Container } from "@mantine/core";
 import { IconMoon, IconMenu2 } from "@tabler/icons";
 import Link from "next/link";
-import { ReactNode } from "react";
+import Head from "next/head";
+import { ReactNode, FC } from "react";
 
 import { useMediaQuery } from "src/lib/mantine";
 
-const Layout = (props: { children: ReactNode; largerThanSm?: true }) => {
+const Layout: FC<{ children: ReactNode; title: string }> = (props) => {
   const largerThanSm = useMediaQuery("sm");
 
   return (
     <>
+      <Head>
+        <title>{props.title}</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+      </Head>
+
       <Container size="md">
         <header className="w-full flex items-center justify-between h-16">
           <ActionIcon
