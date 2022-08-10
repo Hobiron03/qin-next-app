@@ -49,7 +49,7 @@ const Home: NextPage = () => {
 
           <Portfolio />
 
-          <div className="flex">
+          <div className={largerThanSm ? "flex justify-between" : undefined}>
             <Github />
             <Twitter />
           </div>

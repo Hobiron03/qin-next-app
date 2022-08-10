@@ -1,5 +1,6 @@
 import { ReactNode, FC } from "react";
 import { Button, Text } from "@mantine/core";
+import { useMediaQuery } from "src/lib/mantine/useMediaQuery";
 
 type Props = {
   title: string;
@@ -9,8 +10,10 @@ type Props = {
 };
 
 const ContentLayout: FC<Props> = (props) => {
+  const largerThanSm = useMediaQuery("sm");
+
   return (
-    <div className={props.isHalf ? "m-20 w-8/12" : "m-20"}>
+    <div className={props.isHalf && largerThanSm ? "mt-20 w-5/12" : "mt-20"}>
       <Text
         weight={700}
         size={26}
