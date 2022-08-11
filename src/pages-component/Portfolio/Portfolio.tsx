@@ -70,7 +70,7 @@ const Portfolio: FC = () => {
       <Grid justify="space-between">
         {PortfolioData.map((portfolio) => {
           return (
-            <Grid.Col md={6} lg={4} key={portfolio.id}>
+            <Grid.Col xs={12} sm={6} md={6} lg={4} key={portfolio.id}>
               <PortfolioContent
                 id={portfolio.id}
                 image={portfolio.image}

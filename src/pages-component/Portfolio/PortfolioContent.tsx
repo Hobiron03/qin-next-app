@@ -1,12 +1,20 @@
 import { Text, Grid } from "@mantine/core";
 import Image from "next/image";
 import { FC } from "react";
+import { useMediaQuery } from "src/lib/mantine/useMediaQuery";
 import { Portfolio } from "src/types/Portfolio";
 
 const PortfolioContent: FC<Portfolio> = (props) => {
+  const largerThanXs = useMediaQuery("xs");
+
   return (
-    <div className="mt-6">
-      <Image src={props.image} alt="Portfolio" width={314} height={184} />
+    <div className="mt-6 max-w-xs m-auto">
+      <Image
+        src={props.image}
+        alt="Portfolio"
+        width={largerThanXs ? 314 : 314 * 1.5}
+        height={largerThanXs ? 184 : 184 * 1.5}
+      />
       <Text weight={700} size={22}>
         {props.title}
       </Text>

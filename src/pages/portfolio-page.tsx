@@ -7,7 +7,7 @@ import Portfolio from "src/pages-component/Portfolio";
 const PortfolioPage: NextPage = () => {
   return (
     <Layout title="Blog">
-      <Container title="Portfolio">
+      <Container size="md">
         <Portfolio></Portfolio>
       </Container>
     </Layout>
