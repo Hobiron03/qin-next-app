@@ -48,7 +48,7 @@ const Header = () => {
               <span className="mb-10">About</span>
             </Text>
           </Link>
-          <Link href="/Blog">
+          <Link href="/blog-page">
             <Text
               weight={700}
               size={28}
@@ -58,7 +58,7 @@ const Header = () => {
               Blog
             </Text>
           </Link>
-          <Link href="/Portfolio">
+          <Link href="/portfolio-page">
             <Text
               weight={700}
               color="white"
@@ -68,7 +68,7 @@ const Header = () => {
               Portfolio
             </Text>
           </Link>
-          <Link href="/Contact">
+          <Link href="/contact-page">
             <Text
               weight={700}
               size={28}
@@ -80,6 +80,7 @@ const Header = () => {
           </Link>
         </div>
       </Drawer>
+
       <Container size="md">
         <header className="w-full flex items-center justify-between h-16">
           <ActionIcon
@@ -100,40 +101,52 @@ const Header = () => {
 
           <Group position="right" spacing="xl" align="center">
             <Link href="/">
-              <Text
-                weight={700}
-                size="lg"
-                className={largerThanSm ? undefined : "hidden"}
-              >
-                About
-              </Text>
+              <a className="no-underline">
+                <Text
+                  weight={700}
+                  size="lg"
+                  className={largerThanSm ? undefined : "hidden"}
+                  color="dark"
+                >
+                  About
+                </Text>
+              </a>
             </Link>
-            <Link href="/Blog">
-              <Text
-                weight={700}
-                size="lg"
-                className={largerThanSm ? undefined : "hidden"}
-              >
-                Blog
-              </Text>
+            <Link href="/blog-page">
+              <a className="no-underline">
+                <Text
+                  weight={700}
+                  size="lg"
+                  className={largerThanSm ? undefined : "hidden"}
+                  color="dark"
+                >
+                  Blog
+                </Text>
+              </a>
             </Link>
-            <Link href="/Portfolio">
-              <Text
-                weight={700}
-                size="lg"
-                className={largerThanSm ? undefined : "hidden"}
-              >
-                Portfolio
-              </Text>
+            <Link href="/portfolio-page">
+              <a className="no-underline">
+                <Text
+                  weight={700}
+                  size="lg"
+                  className={largerThanSm ? undefined : "hidden"}
+                  color="dark"
+                >
+                  Portfolio
+                </Text>
+              </a>
             </Link>
-            <Link href="/Contact">
-              <Text
-                weight={700}
-                size="lg"
-                className={largerThanSm ? undefined : "hidden"}
-              >
-                Contact
-              </Text>
+            <Link href="/contact-page">
+              <a className="no-underline">
+                <Text
+                  weight={700}
+                  size="lg"
+                  className={largerThanSm ? undefined : "hidden"}
+                  color="dark"
+                >
+                  Contact
+                </Text>
+              </a>
             </Link>
             <ThemeIcon variant="outline" color="dark">
               <IconMoon />
