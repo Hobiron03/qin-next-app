@@ -1,12 +1,14 @@
 import { Container } from "@mantine/core";
 import { NextPage } from "next";
+
 import Layout from "src/component/Layout";
+import Portfolio from "src/pages-component/Portfolio";
 
 const PortfolioPage: NextPage = () => {
   return (
     <Layout title="Blog">
       <Container title="Portfolio">
-        <p>Portfolio</p>
+        <Portfolio></Portfolio>
       </Container>
     </Layout>
   );

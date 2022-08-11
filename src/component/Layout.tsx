@@ -14,9 +14,12 @@ const Layout: FC<{ children: ReactNode; title: string }> = (props) => {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <Header />
-      <div>{props.children}</div>
-      <Footer />
+
+      <div className="flex flex-col h-screen">
+        <Header />
+        <div className="flex-1">{props.children}</div>
+        <Footer />
+      </div>
     </>
   );
 };

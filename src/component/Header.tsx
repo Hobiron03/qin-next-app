@@ -23,7 +23,7 @@ const Header = () => {
   }, [opendDrawer]);
 
   return (
-    <>
+    <div className="w-full">
       <Drawer
         opened={opendDrawer}
         onClose={() => setOpenedDrawer(false)}
@@ -82,7 +82,13 @@ const Header = () => {
       </Drawer>
 
       <Container size="md">
-        <header className="w-full flex items-center justify-between h-16">
+        <header
+          className={
+            largerThanSm
+              ? "w-full flex items-center justify-between h-16 bg"
+              : "w-full flex items-center justify-center h-16"
+          }
+        >
           <ActionIcon
             variant="light"
             className={largerThanSm ? "hidden" : undefined}
@@ -101,52 +107,44 @@ const Header = () => {
 
           <Group position="right" spacing="xl" align="center">
             <Link href="/">
-              <a className="no-underline">
-                <Text
-                  weight={700}
-                  size="lg"
-                  className={largerThanSm ? undefined : "hidden"}
-                  color="dark"
-                >
-                  About
-                </Text>
-              </a>
+              <Text
+                weight={700}
+                size="lg"
+                className={largerThanSm ? "cursor-pointer" : "hidden"}
+                color="dark"
+              >
+                About
+              </Text>
             </Link>
             <Link href="/blog-page">
-              <a className="no-underline">
-                <Text
-                  weight={700}
-                  size="lg"
-                  className={largerThanSm ? undefined : "hidden"}
-                  color="dark"
-                >
-                  Blog
-                </Text>
-              </a>
+              <Text
+                weight={700}
+                size="lg"
+                className={largerThanSm ? "cursor-pointer" : "hidden"}
+                color="dark"
+              >
+                Blog
+              </Text>
             </Link>
             <Link href="/portfolio-page">
-              <a className="no-underline">
-                <Text
-                  weight={700}
-                  size="lg"
-                  className={largerThanSm ? undefined : "hidden"}
-                  color="dark"
-                >
-                  Portfolio
-                </Text>
-              </a>
+              <Text
+                weight={700}
+                size="lg"
+                className={largerThanSm ? "cursor-pointer" : "hidden"}
+                color="dark"
+              >
+                Portfolio
+              </Text>
             </Link>
             <Link href="/contact-page">
-              <a className="no-underline">
-                <Text
-                  weight={700}
-                  size="lg"
-                  className={largerThanSm ? undefined : "hidden"}
-                  color="dark"
-                >
-                  Contact
-                </Text>
-              </a>
+              <Text
+                weight={700}
+                size="lg"
+                className={largerThanSm ? "cursor-pointer" : "hidden"}
+                color="dark"
+              >
+                Contact
+              </Text>
             </Link>
             <ThemeIcon variant="outline" color="dark">
               <IconMoon />
@@ -154,7 +152,7 @@ const Header = () => {
           </Group>
         </header>
       </Container>
-    </>
+    </div>
   );
 };
 
