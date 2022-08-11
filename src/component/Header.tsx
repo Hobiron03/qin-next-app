@@ -106,7 +106,7 @@ const Header = () => {
           </Text>
 
           <Group position="right" spacing="xl" align="center">
-            <Link href="/">
+            <Link href="/about-page">
               <Text
                 weight={700}
                 size="lg"

@@ -4,7 +4,7 @@ import { useMediaQuery } from "src/lib/mantine/useMediaQuery";
 
 type Props = {
   title: string;
-  buttonTitle: string;
+  buttonTitle?: string;
   isHalf?: true;
   children: ReactNode;
 };
@@ -24,14 +24,16 @@ const ContentLayout: FC<Props> = (props) => {
 
       <div>{props.children}</div>
 
-      <Button
-        color="dark"
-        radius="xl"
-        size="md"
-        className="bg-gray-800 mt-10 flex m-auto"
-      >
-        {props.buttonTitle}
-      </Button>
+      {props.buttonTitle ? (
+        <Button
+          color="dark"
+          radius="xl"
+          size="md"
+          className="bg-gray-800 mt-10 flex m-auto"
+        >
+          {props.buttonTitle}
+        </Button>
+      ) : undefined}
     </div>
   );
 };
