@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { ReactNode, FC } from "react";
 
-import Header from "./Header";
+import Header from "src/component/Header";
+import Footer from "src/component/Footer";
 
 const Layout: FC<{ children: ReactNode; title: string }> = (props) => {
   return (
@@ -13,10 +14,9 @@ const Layout: FC<{ children: ReactNode; title: string }> = (props) => {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-
       <Header />
-
-      {props.children}
+      <div>{props.children}</div>
+      <Footer />
     </>
   );
 };

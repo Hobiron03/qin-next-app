@@ -44,16 +44,18 @@ const Home: NextPage = () => {
               </ThemeIcon>
             </div>
           </div>
-
-          <Blog />
-          <Portfolio />
-
-          <div className={largerThanSm ? "flex justify-between" : undefined}>
-            <Github />
-            <Twitter />
-          </div>
         </Container>
       </div>
+
+      <Container size="md">
+        <Blog />
+        <Portfolio />
+
+        <div className={largerThanSm ? "flex justify-between" : undefined}>
+          <Github />
+          <Twitter />
+        </div>
+      </Container>
     </Layout>
   );
 };
