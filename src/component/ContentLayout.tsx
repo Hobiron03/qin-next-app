@@ -13,7 +13,7 @@ const ContentLayout: FC<Props> = (props) => {
   const largerThanSm = useMediaQuery("sm");
 
   return (
-    <div className={props.isHalf && largerThanSm ? "mt-20 w-5/12" : "mt-20"}>
+    <div className={props.isHalf && largerThanSm ? "mt-6 w-5/12" : "mt-6"}>
       <Text
         weight={700}
         size={26}

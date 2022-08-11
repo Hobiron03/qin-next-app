@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
-import { useMediaQuery } from "src/lib/mantine";
-
 import { Container, Text, ThemeIcon } from "@mantine/core";
 import { IconBrandTwitter, IconBrandFacebook, IconRss } from "@tabler/icons";
+
+import { useMediaQuery } from "src/lib/mantine";
 import Layout from "src/component/Layout";
-import Blog from "./Blog";
-import Portfolio from "./Portfolio";
+import Blog from "src/pages-component/Blog";
+import Portfolio from "src/pages-component/Portfolio";
 import Github from "src/component/Github";
 import Twitter from "src/component/Twitter";
 
@@ -46,7 +46,6 @@ const Home: NextPage = () => {
           </div>
 
           <Blog />
-
           <Portfolio />
 
           <div className={largerThanSm ? "flex justify-between" : undefined}>
