@@ -102,7 +102,9 @@ const Header = () => {
             size="lg"
             className={largerThanSm ? undefined : "m-auto"}
           >
-            Shimabu IT University
+            <Link href="/">
+              <span className="cursor-pointer">Shimabu IT University</span>
+            </Link>
           </Text>
 
           <Group position="right" spacing="xl" align="center">
