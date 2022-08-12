@@ -8,7 +8,7 @@ const PortfolioPage: NextPage = () => {
   return (
     <Layout title="Portfolio">
       <Container size="md">
-        <Portfolio></Portfolio>
+        <Portfolio isShowAll></Portfolio>
       </Container>
     </Layout>
   );

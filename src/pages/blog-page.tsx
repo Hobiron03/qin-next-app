@@ -7,7 +7,7 @@ const BlogPage: NextPage = () => {
   return (
     <Layout title="Blog">
       <Container size="md">
-        <Blog />
+        <Blog isShowAll />
       </Container>
     </Layout>
   );

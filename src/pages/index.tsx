@@ -48,8 +48,8 @@ const Home: NextPage = () => {
       </div>
 
       <Container size="md">
-        <Blog />
-        <Portfolio />
+        <Blog buttonTitle="View All" />
+        <Portfolio buttonTitle="View All" />
 
         <div className={largerThanSm ? "flex justify-between" : undefined}>
           <Github />

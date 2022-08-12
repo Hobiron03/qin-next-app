@@ -64,23 +64,40 @@ const PortfolioData: Array<Portfolio> = [
   },
 ];
 
-const Portfolio: FC = () => {
+//index page で表示する最大数
+const DisplayNum = 6;
+
+const Portfolio: FC<{ buttonTitle?: string; isShowAll?: true }> = (props) => {
   return (
-    <ContentLayout title="Portfolio" buttonTitle="View All">
+    <ContentLayout title="Portfolio" buttonTitle={props.buttonTitle}>
       <Grid justify="space-between">
-        {PortfolioData.map((portfolio) => {
-          return (
-            <Grid.Col xs={12} sm={6} md={6} lg={4} key={portfolio.id}>
-              <PortfolioContent
-                id={portfolio.id}
-                image={portfolio.image}
-                title={portfolio.title}
-                description={portfolio.description}
-                created_at={portfolio.created_at}
-              />
-            </Grid.Col>
-          );
-        })}
+        {props.isShowAll
+          ? PortfolioData.map((portfolio, index) => {
+              return (
+                <Grid.Col xs={12} sm={6} md={6} lg={4} key={portfolio.id}>
+                  <PortfolioContent
+                    id={portfolio.id}
+                    image={portfolio.image}
+                    title={portfolio.title}
+                    description={portfolio.description}
+                    created_at={portfolio.created_at}
+                  />
+                </Grid.Col>
+              );
+            })
+          : PortfolioData.map((portfolio, index) => {
+              return index + 1 <= DisplayNum ? (
+                <Grid.Col xs={12} sm={6} md={6} lg={4} key={portfolio.id}>
+                  <PortfolioContent
+                    id={portfolio.id}
+                    image={portfolio.image}
+                    title={portfolio.title}
+                    description={portfolio.description}
+                    created_at={portfolio.created_at}
+                  />
+                </Grid.Col>
+              ) : undefined;
+            })}
       </Grid>
     </ContentLayout>
   );
