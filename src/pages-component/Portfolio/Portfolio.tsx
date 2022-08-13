@@ -1,9 +1,10 @@
-import ContentLayout from "src/component/ContentLayout";
-import { FC } from "react";
+import { FC, useCallback } from "react";
+import { Grid } from "@mantine/core";
+import { useRouter } from "next/router";
 
+import ContentLayout from "src/component/ContentLayout";
 import { Portfolio } from "src/types/Portfolio";
 import PortfolioContent from "src/pages-component/Portfolio/PortfolioContent";
-import { Grid } from "@mantine/core";
 
 const PortfolioData: Array<Portfolio> = [
   {
@@ -68,8 +69,17 @@ const PortfolioData: Array<Portfolio> = [
 const DisplayNum = 6;
 
 const Portfolio: FC<{ buttonTitle?: string; isShowAll?: true }> = (props) => {
+  const router = useRouter();
+
+  const onClickPortfolioButton = useCallback(() => {
+    router.push("/portfolio-page");
+  }, [router]);
   return (
-    <ContentLayout title="Portfolio" buttonTitle={props.buttonTitle}>
+    <ContentLayout
+      title="Portfolio"
+      buttonTitle={props.buttonTitle}
+      onClickButton={onClickPortfolioButton}
+    >
       <Grid justify="space-between">
         {props.isShowAll
           ? PortfolioData.map((portfolio, index) => {

@@ -1,7 +1,8 @@
 import ContentLayout from "src/component/ContentLayout";
 import BlogContent from "src/pages-component/Blog/BlogContent";
 import { Blog } from "src/types/Blog";
-import { FC } from "react";
+import { FC, useCallback } from "react";
+import { useRouter } from "next/router";
 const BlogData: Array<Blog> = [
   {
     id: 1,
@@ -63,10 +64,22 @@ const BlogData: Array<Blog> = [
 
 //index page で表示する最大数
 const DisplayNum = 6;
+const Blog: FC<{
+  buttonTitle?: string;
+  isShowAll?: true;
+}> = (props) => {
+  const router = useRouter();
 
-const Blog: FC<{ buttonTitle?: string; isShowAll?: true }> = (props) => {
+  const onClickBlogButton = useCallback(() => {
+    router.push("/blog-page");
+  }, [router]);
+
   return (
-    <ContentLayout title="Blog" buttonTitle={props.buttonTitle}>
+    <ContentLayout
+      title="Blog"
+      buttonTitle={props.buttonTitle}
+      onClickButton={onClickBlogButton}
+    >
       {/* TODO: コードのリファクタ */}
       {props.isShowAll
         ? BlogData.map((blog, index) => {
