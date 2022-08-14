@@ -6,8 +6,9 @@ import {
   Text,
   Drawer,
   CloseButton,
+  useMantineColorScheme,
 } from "@mantine/core";
-import { IconMenu2, IconMoon } from "@tabler/icons";
+import { IconMenu2, IconMoon, IconSun, IconMoonStars } from "@tabler/icons";
 import Link from "next/link";
 import { useState } from "react";
 import { useCallback } from "react";
@@ -21,6 +22,9 @@ const Header = () => {
   const onClickToggleIconMenu = useCallback(() => {
     setOpenedDrawer(!opendDrawer);
   }, [opendDrawer]);
+
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const dark = colorScheme === "dark";
 
   return (
     <div className="w-full">
@@ -85,7 +89,7 @@ const Header = () => {
         <header
           className={
             largerThanSm
-              ? "w-full flex items-center justify-between h-16 bg"
+              ? "w-full flex items-center justify-between h-16"
               : "w-full flex items-center justify-center h-16"
           }
         >
@@ -148,9 +152,14 @@ const Header = () => {
                 Contact
               </Text>
             </Link>
-            <ThemeIcon variant="outline" color="dark">
-              <IconMoon />
-            </ThemeIcon>
+            <ActionIcon
+              variant="outline"
+              color={dark ? "yellow" : "dark"}
+              onClick={() => toggleColorScheme()}
+            >
+              {/* <IconMoon /> */}
+              {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
+            </ActionIcon>
           </Group>
         </header>
       </Container>
