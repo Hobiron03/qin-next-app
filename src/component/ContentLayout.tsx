@@ -1,5 +1,6 @@
 import { ReactNode, FC } from "react";
 import { Button, Text } from "@mantine/core";
+
 import { useMediaQuery } from "src/lib/mantine/useMediaQuery";
 
 type Props = {

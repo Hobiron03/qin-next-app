@@ -1,6 +1,7 @@
 import { Text, Grid } from "@mantine/core";
 import Image from "next/image";
 import { FC } from "react";
+
 import { useMediaQuery } from "src/lib/mantine/useMediaQuery";
 import { Portfolio } from "src/types/Portfolio";
 

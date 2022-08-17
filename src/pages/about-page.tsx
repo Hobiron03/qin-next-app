@@ -1,7 +1,7 @@
 import { Container, Text } from "@mantine/core";
 import { FC } from "react";
-import ContentLayout from "src/component/ContentLayout";
 
+import ContentLayout from "src/component/ContentLayout";
 import Layout from "src/component/Layout";
 
 const AboutPage: FC = () => {

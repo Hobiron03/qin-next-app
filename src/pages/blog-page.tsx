@@ -1,5 +1,6 @@
 import { Container } from "@mantine/core";
 import { NextPage } from "next";
+
 import Layout from "src/component/Layout";
 import Blog from "src/pages-component/Blog";
 

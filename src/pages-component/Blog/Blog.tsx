@@ -1,8 +1,10 @@
+import { FC, useCallback } from "react";
+import { useRouter } from "next/router";
+
 import ContentLayout from "src/component/ContentLayout";
 import BlogContent from "src/pages-component/Blog/BlogContent";
 import { Blog } from "src/types/Blog";
-import { FC, useCallback } from "react";
-import { useRouter } from "next/router";
+
 const BlogData: Array<Blog> = [
   {
     id: 1,

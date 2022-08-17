@@ -2,13 +2,12 @@ import {
   Container,
   ActionIcon,
   Group,
-  ThemeIcon,
   Text,
   Drawer,
   CloseButton,
   useMantineColorScheme,
 } from "@mantine/core";
-import { IconMenu2, IconMoon, IconSun, IconMoonStars } from "@tabler/icons";
+import { IconMenu2, IconSun, IconMoonStars } from "@tabler/icons";
 import Link from "next/link";
 import { useState } from "react";
 import { useCallback } from "react";

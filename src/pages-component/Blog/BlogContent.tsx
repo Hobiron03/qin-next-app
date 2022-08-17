@@ -1,6 +1,7 @@
 import { Text } from "@mantine/core";
 import Link from "next/link";
 import { FC } from "react";
+
 import { Blog } from "src/types/Blog";
 
 const BlogContent: FC<Blog> = (props) => {
