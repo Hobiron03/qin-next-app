@@ -2,9 +2,14 @@ import { Text } from "@mantine/core";
 import Link from "next/link";
 import { FC } from "react";
 
-import { Blog } from "src/types/Blog";
+type BlogContent = {
+  id: string;
+  title: string;
+  description: string;
+  createdAt: string;
+};
 
-const BlogContent: FC<Blog> = (props) => {
+const BlogContent: FC<BlogContent> = (props) => {
   return (
     <Link href={`/blog-page/${props.id}`}>
       <div className="mb-6 cursor-pointer hover:bg-slate-50">
@@ -12,10 +17,10 @@ const BlogContent: FC<Blog> = (props) => {
           {props.title}
         </Text>
         <Text weight={500} size={16}>
-          {props.description}
+          {props.title}
         </Text>
         <Text weight={700} size={12} color="#909296">
-          {props.created_at}
+          {props.createdAt}
         </Text>
       </div>
     </Link>

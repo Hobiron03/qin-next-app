@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import ContentLayout from "src/component/ContentLayout";
 import BlogContent from "src/pages-component/Blog/BlogContent";
 import { Blog } from "src/types/Blog";
+import { MicroCMSListResponse } from "microcms-js-sdk";
 
 const BlogData: Array<Blog> = [
   {
@@ -64,9 +65,15 @@ const BlogData: Array<Blog> = [
   },
 ];
 
+type MicroCMSBlog = {
+  title: string;
+  body: string;
+};
+
 //index page で表示する最大数
 const DisplayNum = 6;
 const Blog: FC<{
+  blogs: MicroCMSListResponse<MicroCMSBlog>;
   buttonTitle?: string;
   isShowAll?: true;
 }> = (props) => {
@@ -84,25 +91,25 @@ const Blog: FC<{
     >
       {/* TODO: コードのリファクタ */}
       {props.isShowAll
-        ? BlogData.map((blog, index) => {
+        ? props.blogs?.contents?.map((blog, index) => {
             return (
               <BlogContent
                 key={blog.id}
                 id={blog.id}
                 title={blog.title}
-                description={blog.description}
-                created_at={blog.created_at}
+                description={blog.title}
+                createdAt={blog.createdAt}
               />
             );
           })
-        : BlogData.map((blog, index) => {
+        : props.blogs?.contents?.map((blog, index) => {
             return index + 1 <= DisplayNum ? (
               <BlogContent
                 key={blog.id}
                 id={blog.id}
                 title={blog.title}
-                description={blog.description}
-                created_at={blog.created_at}
+                description={blog.title}
+                createdAt={blog.createdAt}
               />
             ) : undefined;
           })}
