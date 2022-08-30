@@ -73,7 +73,7 @@ type MicroCMSBlog = {
 //index page で表示する最大数
 const DisplayNum = 6;
 const Blog: FC<{
-  blogs: MicroCMSListResponse<MicroCMSBlog>;
+  blogs?: MicroCMSListResponse<MicroCMSBlog>;
   buttonTitle?: string;
   isShowAll?: true;
 }> = (props) => {

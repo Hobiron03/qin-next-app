@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { Container, Text, ThemeIcon } from "@mantine/core";
 import { IconBrandTwitter, IconBrandFacebook, IconRss } from "@tabler/icons";
 
@@ -8,8 +8,18 @@ import Blog from "src/pages-component/Blog";
 import Portfolio from "src/pages-component/Portfolio";
 import Github from "src/component/Github";
 import Twitter from "src/component/Twitter";
+import { client } from "src/lib/client";
+import { MicroCMSListResponse } from "microcms-js-sdk";
+import BlogContent from "src/pages-component/Blog/BlogContent";
+import Link from "next/link";
 
-const Home: NextPage = () => {
+type Blog = {
+  title: string;
+  body: string;
+};
+type Props = MicroCMSListResponse<Blog>;
+
+const Home: NextPage<Props> = (props) => {
   const largerThanSm = useMediaQuery("sm");
 
   return (
@@ -49,6 +59,18 @@ const Home: NextPage = () => {
 
       <Container size="md">
         <Blog buttonTitle="View All" />
+        {props.contents?.map((content) => {
+          return (
+            <Link href={`/blog-page/${content.id}`} key={content.id}>
+              <BlogContent
+                id={content.id}
+                title={content.title}
+                description={content.title}
+                createdAt={content.createdAt}
+              />
+            </Link>
+          );
+        })}
         <Portfolio buttonTitle="View All" />
 
         <div className={largerThanSm ? "flex justify-between" : undefined}>
@@ -58,6 +80,14 @@ const Home: NextPage = () => {
       </Container>
     </Layout>
   );
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const data = await client.getList({ endpoint: "blogs" });
+  console.log(data);
+  return {
+    props: data,
+  };
 };
 
 export default Home;
