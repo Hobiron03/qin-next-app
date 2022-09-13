@@ -1,6 +1,9 @@
-import type { GetStaticProps, NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { Container, Text, ThemeIcon } from "@mantine/core";
 import { IconBrandTwitter, IconBrandFacebook, IconRss } from "@tabler/icons";
+import { MicroCMSListResponse } from "microcms-js-sdk";
+import { Client } from "twitter-api-sdk";
+import Link from "next/link";
 
 import { useMediaQuery } from "src/lib/mantine";
 import Layout from "src/component/Layout";
@@ -9,18 +12,37 @@ import Portfolio from "src/pages-component/Portfolio";
 import Github from "src/component/Github";
 import Twitter from "src/component/Twitter";
 import { client } from "src/lib/client";
-import { MicroCMSListResponse } from "microcms-js-sdk";
 import BlogContent from "src/pages-component/Blog/BlogContent";
-import Link from "next/link";
 
 type Blog = {
   title: string;
   body: string;
 };
-type Props = MicroCMSListResponse<Blog>;
+type Tweets = {
+  tweets: Array<{
+    author_id: string;
+    created_at: string;
+    id: string;
+    text: string;
+  }>;
+};
+type User = {
+  id: string;
+  name: string;
+  profile_image_url: string;
+  username: string;
+};
+
+type Props = {
+  blogData: MicroCMSListResponse<Blog>;
+  tweets: Tweets;
+  user: User;
+};
 
 const Home: NextPage<Props> = (props) => {
   const largerThanSm = useMediaQuery("sm");
+
+  console.log(props);
 
   return (
     <Layout title="Home">
@@ -59,7 +81,7 @@ const Home: NextPage<Props> = (props) => {
 
       <Container size="md">
         <Blog buttonTitle="View All" />
-        {props.contents?.map((content) => {
+        {props.blogData.contents?.map((content) => {
           return (
             <Link href={`/blog-page/${content.id}`} key={content.id}>
               <BlogContent
@@ -71,6 +93,7 @@ const Home: NextPage<Props> = (props) => {
             </Link>
           );
         })}
+
         <Portfolio buttonTitle="View All" />
 
         <div className={largerThanSm ? "flex justify-between" : undefined}>
@@ -82,11 +105,26 @@ const Home: NextPage<Props> = (props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const data = await client.getList({ endpoint: "blogs" });
-  console.log(data);
+export const getStaticProps = async () => {
+  const blogData = await client.getList({ endpoint: "blogs" });
+  const twitterClient = new Client(process.env.BEARER_TOKEN!);
+  const tweets = await twitterClient.tweets.usersIdTweets(
+    process.env.TWITTER_USER_ID!,
+    {
+      "tweet.fields": ["author_id", "created_at"],
+    }
+  );
+  const user = await twitterClient.users.findUsersById({
+    ids: ["1567884047552225282"],
+    "user.fields": ["id", "name", "profile_image_url", "username"],
+  });
   return {
-    props: data,
+    props: {
+      blogData,
+      tweets: tweets.data,
+      user: user.data[0],
+    },
+    revalidate: 100,
   };
 };
 

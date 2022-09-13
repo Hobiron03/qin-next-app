@@ -8,12 +8,13 @@ const Twitter: FC = () => {
   const getTweets = useCallback(async () => {
     const data = await fetch("/api/tweets");
     const json = await data.json();
+    console.log(json.data[0]);
   }, []);
 
   return (
     <ContentLayout title="Twitter" buttonTitle="View on Twitter" isHalf>
       <div>
-        {[...Array(3)].map((index) => {
+        {[...Array(3)].map((i, index) => {
           return (
             <div className="flex mt-5 mr-2" key={index}>
               <Avatar />
