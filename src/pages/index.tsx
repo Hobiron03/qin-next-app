@@ -13,36 +13,22 @@ import Github from "src/component/Github";
 import Twitter from "src/component/Twitter";
 import { client } from "src/lib/client";
 import BlogContent from "src/pages-component/Blog/BlogContent";
+import { Tweet } from "src/types/Tweets";
+import { TwitterUser } from "src/types/TwitterUser";
 
 type Blog = {
   title: string;
   body: string;
 };
-type Tweets = {
-  tweets: Array<{
-    author_id: string;
-    created_at: string;
-    id: string;
-    text: string;
-  }>;
-};
-type User = {
-  id: string;
-  name: string;
-  profile_image_url: string;
-  username: string;
-};
 
 type Props = {
   blogData: MicroCMSListResponse<Blog>;
-  tweets: Tweets;
-  user: User;
+  tweets: Array<Tweet>;
+  users: Array<TwitterUser>;
 };
 
 const Home: NextPage<Props> = (props) => {
   const largerThanSm = useMediaQuery("sm");
-
-  console.log(props);
 
   return (
     <Layout title="Home">
@@ -98,7 +84,7 @@ const Home: NextPage<Props> = (props) => {
 
         <div className={largerThanSm ? "flex justify-between" : undefined}>
           <Github />
-          <Twitter />
+          <Twitter tweets={props.tweets} user={props.users[0]} />
         </div>
       </Container>
     </Layout>
@@ -112,19 +98,21 @@ export const getStaticProps = async () => {
     process.env.TWITTER_USER_ID!,
     {
       "tweet.fields": ["author_id", "created_at"],
+      max_results: 5,
     }
   );
-  const user = await twitterClient.users.findUsersById({
+  const users = await twitterClient.users.findUsersById({
     ids: ["1567884047552225282"],
     "user.fields": ["id", "name", "profile_image_url", "username"],
   });
+
   return {
     props: {
       blogData,
       tweets: tweets.data,
-      user: user.data[0],
+      users: users.data,
     },
-    revalidate: 100,
+    revalidate: 60,
   };
 };
 
