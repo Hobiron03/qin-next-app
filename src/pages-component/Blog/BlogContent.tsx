@@ -9,7 +9,7 @@ type BlogContent = {
   createdAt: string;
 };
 
-const BlogContent: FC<BlogContent> = (props) => {
+export const BlogContent: FC<BlogContent> = (props) => {
   return (
     <Link href={`/blog-page/${props.id}`}>
       <div className="mb-6 cursor-pointer hover:bg-slate-50">
@@ -26,5 +26,3 @@ const BlogContent: FC<BlogContent> = (props) => {
     </Link>
   );
 };
-
-export default BlogContent;

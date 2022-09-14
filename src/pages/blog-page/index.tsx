@@ -1,12 +1,12 @@
 import { Container } from "@mantine/core";
 import { GetStaticProps, NextPage } from "next";
+import Link from "next/link";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 
-import Layout from "src/component/Layout";
-import Blog from "src/pages-component/Blog";
+import { Layout } from "src/component/Layout";
+import { Blog } from "src/pages-component/blog";
 import { client } from "src/lib/client";
-import BlogContent from "src/pages-component/Blog/BlogContent";
-import Link from "next/link";
+import { BlogContent } from "src/pages-component/blog/BlogContent";
 
 type Blog = {
   title: string;

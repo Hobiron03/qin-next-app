@@ -14,7 +14,7 @@ import { useCallback } from "react";
 
 import { useMediaQuery } from "src/lib/mantine";
 
-const Header = () => {
+export const Header = () => {
   const [opendDrawer, setOpenedDrawer] = useState<boolean>(false);
   const largerThanSm = useMediaQuery("sm");
 
@@ -165,5 +165,3 @@ const Header = () => {
     </div>
   );
 };
-
-export default Header;

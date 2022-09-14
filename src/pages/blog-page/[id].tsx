@@ -1,8 +1,9 @@
 import { Container } from "@mantine/core";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import ContentLayout from "src/component/ContentLayout";
-import Layout from "src/component/Layout";
+import { GetStaticPaths, NextPage } from "next";
+
+import { ContentLayout } from "src/component/ContentLayout";
+import { Layout } from "src/component/Layout";
 import { client } from "src/lib/client";
 
 type Blog = {

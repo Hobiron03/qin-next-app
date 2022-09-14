@@ -4,7 +4,7 @@ import { Avatar } from "@mantine/core";
 
 import { Tweet } from "src/types/Tweets";
 import { TwitterUser } from "src/types/TwitterUser";
-import ContentLayout from "src/component/ContentLayout";
+import { ContentLayout } from "src/component/ContentLayout";
 
 type Props = {
   tweets: Array<Tweet>;

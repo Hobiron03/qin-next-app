@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from "next";
+import { NextPage } from "next";
 import { Container, Text, ThemeIcon } from "@mantine/core";
 import { IconBrandTwitter, IconBrandFacebook, IconRss } from "@tabler/icons";
 import { MicroCMSListResponse } from "microcms-js-sdk";
@@ -6,13 +6,13 @@ import { Client } from "twitter-api-sdk";
 import Link from "next/link";
 
 import { useMediaQuery } from "src/lib/mantine";
-import Layout from "src/component/Layout";
-import Blog from "src/pages-component/Blog";
-import Portfolio from "src/pages-component/Portfolio";
+import { Layout } from "src/component/Layout";
+import { Blog } from "src/pages-component/blog";
+import { Portfolio } from "src/pages-component/portfolio";
 import Github from "src/component/Github";
 import Twitter from "src/component/Twitter";
 import { client } from "src/lib/client";
-import BlogContent from "src/pages-component/Blog/BlogContent";
+import { BlogContent } from "src/pages-component/blog/BlogContent";
 import { Tweet } from "src/types/Tweets";
 import { TwitterUser } from "src/types/TwitterUser";
 

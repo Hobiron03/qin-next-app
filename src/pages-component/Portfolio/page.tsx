@@ -2,11 +2,11 @@ import { FC, useCallback } from "react";
 import { Grid } from "@mantine/core";
 import { useRouter } from "next/router";
 
-import ContentLayout from "src/component/ContentLayout";
-import { Portfolio } from "src/types/Portfolio";
-import PortfolioContent from "src/pages-component/Portfolio/PortfolioContent";
+import { ContentLayout } from "src/component/ContentLayout";
+import { PortfolioData } from "src/types/Portfolio";
+import PortfolioContent from "src/pages-component/portfolio/PortfolioContent";
 
-const PortfolioData: Array<Portfolio> = [
+const PortfolioData: Array<PortfolioData> = [
   {
     id: 1,
     image: "/kingdom.jpg",
@@ -68,7 +68,9 @@ const PortfolioData: Array<Portfolio> = [
 //index page で表示する最大数
 const DisplayNum = 6;
 
-const Portfolio: FC<{ buttonTitle?: string; isShowAll?: true }> = (props) => {
+export const Portfolio: FC<{ buttonTitle?: string; isShowAll?: true }> = (
+  props
+) => {
   const router = useRouter();
 
   const onClickPortfolioButton = useCallback(() => {
@@ -112,5 +114,3 @@ const Portfolio: FC<{ buttonTitle?: string; isShowAll?: true }> = (props) => {
     </ContentLayout>
   );
 };
-
-export default Portfolio;
