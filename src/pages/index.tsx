@@ -43,10 +43,10 @@ const Home: NextPage<Props> = (props) => {
           >
             <div>
               <Text weight={700} size={largerThanSm ? 36 : 28} color="white">
-                Shimabu IT University
+                Kamikami IT University
               </Text>
               <Text weight={700} size="xs" color="white">
-                しまぶーのポートフォリオのためのページです
+                かみかみのポートフォリオのためのページです
               </Text>
             </div>
 
