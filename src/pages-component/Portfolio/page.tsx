@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import { ContentLayout } from "src/component/ContentLayout";
 import { PortfolioData } from "src/types/Portfolio";
-import PortfolioContent from "src/pages-component/portfolio/PortfolioContent";
+import PortfolioContent from "./PortfolioContent";
 
 const PortfolioData: Array<PortfolioData> = [
   {
