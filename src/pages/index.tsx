@@ -7,8 +7,8 @@ import Link from "next/link";
 
 import { useMediaQuery } from "src/lib/mantine";
 import { Layout } from "src/component/Layout";
-import { Blog } from "src/pages-component/blog";
-import { Portfolio } from "src/pages-component/portfolio";
+import { Blog } from "src/component/blog";
+import { Portfolio } from "src/component/portfolio";
 import Github from "src/component/Github";
 import Twitter from "src/component/Twitter";
 import { client } from "src/lib/client";
