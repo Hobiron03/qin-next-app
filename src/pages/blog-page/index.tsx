@@ -4,9 +4,8 @@ import Link from "next/link";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 
 import { Layout } from "src/component/Layout";
-import { Blog } from "src/pages-component/blog";
 import { client } from "src/lib/client";
-import { BlogContent } from "src/pages-component/blog/BlogContent";
+import { BlogContent } from "src/component/BlogContent";
 
 type Blog = {
   title: string;
@@ -38,7 +37,6 @@ const BlogPage: NextPage<Props> = (props) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const data = await client.getList({ endpoint: "blogs" });
-  console.log(data);
   return {
     props: data,
   };

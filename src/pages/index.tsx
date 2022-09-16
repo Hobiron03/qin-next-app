@@ -12,7 +12,7 @@ import { Portfolio } from "src/pages-component/portfolio";
 import Github from "src/component/Github";
 import Twitter from "src/component/Twitter";
 import { client } from "src/lib/client";
-import { BlogContent } from "src/pages-component/blog/BlogContent";
+import { BlogContent } from "src/component/BlogContent";
 import { Tweet } from "src/types/Tweets";
 import { TwitterUser } from "src/types/TwitterUser";
 

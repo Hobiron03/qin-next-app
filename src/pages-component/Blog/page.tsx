@@ -2,7 +2,7 @@ import { FC, useCallback } from "react";
 import { useRouter } from "next/router";
 
 import { ContentLayout } from "src/component/ContentLayout";
-import { BlogContent } from "./BlogContent";
+import { BlogContent } from "src/component/BlogContent";
 import { BlogData } from "src/types/Blog";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 
