@@ -7,7 +7,7 @@ import { TwitterUser } from "src/types/TwitterUser";
 import { ContentLayout } from "src/component/ContentLayout";
 
 type Props = {
-  tweets: Array<Tweet>;
+  tweets: Tweet[];
   user: TwitterUser;
 };
 

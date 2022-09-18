@@ -6,7 +6,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const twitterClient = new Client(process.env.BEARER_TOKEN!);
   try {
     const usersTweets = await twitterClient.tweets.usersIdTweets(
-      process.env.TWITTER_USER_ID!,
+      `${process.env.TWITTER_USER_ID}`,
       {
         "tweet.fields": ["author_id", "created_at"],
       }

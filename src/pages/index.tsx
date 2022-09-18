@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import { Container, Text, ThemeIcon } from "@mantine/core";
 import { IconBrandTwitter, IconBrandFacebook, IconRss } from "@tabler/icons";
-import { MicroCMSListResponse } from "microcms-js-sdk";
+import type { MicroCMSListResponse } from "microcms-js-sdk";
 import { Client } from "twitter-api-sdk";
 import Link from "next/link";
 

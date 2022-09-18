@@ -4,7 +4,9 @@ import { ReactNode, FC } from "react";
 import { Header } from "src/component/Header";
 import { Footer } from "src/component/Footer";
 
-export const Layout: FC<{ children: ReactNode; title: string }> = (props) => {
+type Props = { children: ReactNode; title: string };
+
+export const Layout: FC<Props> = (props) => {
   return (
     <>
       <Head>
