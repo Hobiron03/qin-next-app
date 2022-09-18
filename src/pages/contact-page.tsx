@@ -1,8 +1,8 @@
 import { Container, Input, Textarea } from "@mantine/core";
 import { FC } from "react";
 
-import ContentLayout from "src/component/ContentLayout";
-import Layout from "src/component/Layout";
+import { ContentLayout } from "src/component/ContentLayout";
+import { Layout } from "src/component/Layout";
 
 const ContactPage: FC = () => {
   return (

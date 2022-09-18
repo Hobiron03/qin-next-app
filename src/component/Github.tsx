@@ -1,4 +1,4 @@
-import ContentLayout from "src/component/ContentLayout";
+import { ContentLayout } from "src/component/ContentLayout";
 
 const Github = () => {
   return (

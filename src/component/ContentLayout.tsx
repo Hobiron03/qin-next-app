@@ -11,7 +11,7 @@ type Props = {
   children: ReactNode;
 };
 
-const ContentLayout: FC<Props> = (props) => {
+export const ContentLayout: FC<Props> = (props) => {
   const largerThanSm = useMediaQuery("sm");
 
   return (
@@ -40,5 +40,3 @@ const ContentLayout: FC<Props> = (props) => {
     </div>
   );
 };
-
-export default ContentLayout;

@@ -1,10 +1,12 @@
 import Head from "next/head";
 import { ReactNode, FC } from "react";
 
-import Header from "src/component/Header";
-import Footer from "src/component/Footer";
+import { Header } from "src/component/Header";
+import { Footer } from "src/component/Footer";
 
-const Layout: FC<{ children: ReactNode; title: string }> = (props) => {
+type Props = { children: ReactNode; title: string };
+
+export const Layout: FC<Props> = (props) => {
   return (
     <>
       <Head>
@@ -23,5 +25,3 @@ const Layout: FC<{ children: ReactNode; title: string }> = (props) => {
     </>
   );
 };
-
-export default Layout;

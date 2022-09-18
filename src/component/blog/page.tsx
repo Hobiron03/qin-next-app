@@ -1,12 +1,12 @@
 import { FC, useCallback } from "react";
 import { useRouter } from "next/router";
 
-import ContentLayout from "src/component/ContentLayout";
-import BlogContent from "src/pages-component/Blog/BlogContent";
-import { Blog } from "src/types/Blog";
+import { ContentLayout } from "src/component/ContentLayout";
+import { BlogContent } from "src/component/BlogContent";
+import { BlogData } from "src/types/Blog";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 
-const BlogData: Array<Blog> = [
+const BlogData: Array<BlogData> = [
   {
     id: 1,
     title: "This is Header",
@@ -72,7 +72,7 @@ type MicroCMSBlog = {
 
 //index page で表示する最大数
 const DisplayNum = 6;
-const Blog: FC<{
+export const Blog: FC<{
   blogs?: MicroCMSListResponse<MicroCMSBlog>;
   buttonTitle?: string;
   isShowAll?: true;
@@ -116,5 +116,3 @@ const Blog: FC<{
     </ContentLayout>
   );
 };
-
-export default Blog;

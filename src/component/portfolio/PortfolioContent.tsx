@@ -3,9 +3,9 @@ import Image from "next/image";
 import { FC } from "react";
 
 import { useMediaQuery } from "src/lib/mantine/useMediaQuery";
-import { Portfolio } from "src/types/Portfolio";
+import { PortfolioData } from "src/types/Portfolio";
 
-const PortfolioContent: FC<Portfolio> = (props) => {
+const PortfolioContent: FC<PortfolioData> = (props) => {
   const largerThanXs = useMediaQuery("xs");
 
   return (
